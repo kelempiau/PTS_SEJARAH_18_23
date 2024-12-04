@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 6 - Tebak Sejarah Indonesia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      border: 2px solid #d9fdd3;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2d6a4f;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #5f5f5f;
+      margin-bottom: 30px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    .option {
+      background-color: #95d5b2;
+      color: #ffffff;
+    }
+    .option:hover {
+      background-color: #74c69d;
+    }
+    .correct {
+      background-color: #52b788;
+    }
+    .wrong {
+      background-color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Level 6</h1>
+    <p>Kerajaan Majapahit mencapai puncak kejayaannya pada masa pemerintahan...</p>
+    <div class="options">
+      <button class="option" onclick="checkAnswer(this, false)">Raden Wijaya</button>
+      <button class="option" onclick="checkAnswer(this, false)">Gajah Mada</button>
+      <button class="option" onclick="checkAnswer(this, false)">Tribhuwana Tunggadewi</button>
+      <button class="option" onclick="checkAnswer(this, true)">Hayam Wuruk</button>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(button, isCorrect) {
+      // Reset semua tombol
+      const buttons = document.querySelectorAll('.option');
+      buttons.forEach(btn => {
+        btn.classList.remove('correct', 'wrong');
+        btn.disabled = true; // Nonaktifkan semua tombol setelah memilih
+      });
+
+      // Tandai jawaban yang dipilih
+      if (isCorrect) {
+        button.classList.add('correct');
+        setTimeout(() => alert("Benar! Kamu naik ke level berikutnya!"), 500);
+        window.location.href = 'lv6_true.html';
+        // Tambahkan pengalihan ke level berikutnya
+        // setTimeout(() => window.location.href = 'level2.html', 1500);
+      } else {
+        button.classList.add('wrong');
+        setTimeout(() => alert("Salah! Coba lagi!"), 500);
+        window.location.href = 'out.html';
+      }
+    }
+  </script>
+</body>
+</html>
